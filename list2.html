@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    html,body{
+		    	width: 100%;
+		    	height: 100%;
+		    	margin: 0;
+		    }
+		    body{
+		    	background: url(img/zpbg.png) no-repeat center center;
+		    	background-size: cover;
+		    	display: flex;
+		    }
+		    ul,li{
+		    	margin: 0;
+		    	padding: 0;
+		    	list-style: none;
+		    }
+		    p{
+		    	margin: 0;
+		    }
+		    a{
+		    	text-decoration: none;
+		    	color:#b6bdcf;
+		    }
+		    #content{
+		    	width: 700px;
+		    	height: 560px;
+		    	border-radius: 10px;
+		    	border: 1px solid #30343f;
+		    	margin: auto;
+		    	background: url(img/logo.png) no-repeat 25px 25px #252934;
+		    	box-sizing: border-box;
+		    	padding: 84px 0px 0px 25px;
+		    }
+		    #leftList{
+		    	float: left;
+		    	width: 60px;
+		    	padding-right: 12px;
+		    	height: 100%;
+		    	background: url(img/leftListBg.png) no-repeat right top;
+		    }
+		    #leftList li{
+		    	text-align: right;
+		    	height: 68px;
+		    	padding-top: 12px;
+		    	color: #6a7686;
+		    	font: 10px/18px "微软雅黑";
+		    }
+		    #leftList li span{
+		    	font-size: 12px;
+		    	display: block;
+					cursor: pointer;
+		    }
+		    #leftList .active span{
+		    	color: #ff2c4f;
+		    }
+		    #right{
+		    	width: 600px;
+		    	height: 100%;
+		    	float: left;
+		    }
+		    #rightList li{
+		    	height: 82px;
+		    	width: 100%;
+		    	box-sizing: border-box;
+		    	padding: 20px 25px 20px 30px;
+		    	position: relative;
+					cursor: pointer;
+		    }
+		    #rightList li:hover{
+		    	background-color: #1e212a;
+		    }
+		    #rightList li:hover .num{
+		    	color: #ff2c4f;
+		    }
+		    #rightList li:hover:before{
+		    	content: "";
+		    	width: 2px;
+		    	height: 54px;
+		    	position: absolute;
+		    	background-color: #ff2c4f;
+		    	left: -3px;
+		    	top: 10px;
+		    }
+		    #rightList li:after{
+		    	content: "";
+		    	width: 543px;
+		    	height: 1px;
+		    	position: absolute;
+		    	bottom: 0px;
+		    	right: 25px;
+		    	background:url(img/lineBg.png) repeat-x;
+		    }
+		    #rightList .num{
+		    	font-size: 30px;
+		    	font-family: arial;
+		    	color:#6a7686;
+		    	float: left;
+		    	width: 36px;
+		    	height: 40px;
+		    	border-right: 1px solid #303642;
+		    }
+		    #rightList .list{
+		    	float: left;
+		    	width: 500px;
+		    	margin-left: 6px;
+		    	font-size: 14px;
+		    	color: #b6bdcf;
+		    	font-family: "微软雅黑";
+		    }
+		    #rightList .list span{
+		    	float: left;
+		    }
+		    
+		    .list>a:nth-of-type(1){
+		    	height: 26px;
+		    	float: none;
+		    	font-size: 14px;
+		    }
+		    .job{
+		    	margin-right: 15px;
+		    }
+		    #rightList .list time{
+		    	float: right;
+		    	color: #606a7a;
+		    }
+		    .list .text{
+		    	float: left;
+		    	width: 430px;
+		    	overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+		    }
+		    .list a{
+		    	float: right;
+		    	font-size: 12px;
+		    }
+		    nav{
+		    	font-size: 0px;
+		    	text-align: center;
+		    }
+		    nav a{
+		    	font: 12px/46px "微软雅黑";
+		    	display: inline-block;
+		    	vertical-align: middle;
+		    	width: 24px;
+		    }
+		    nav a.active{
+		    	color: #eb2a4b;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<ul id="leftList">
+				<li class="active"><span>社会招聘</span>society</li>
+				<li ><span>校园招聘</span>campus</li>
+			</ul>
+			<div id="right">
+				<ul id="rightList">
+					
+				</ul>
+				<nav id="nav">
+					<a href="javascript:;"><</a>
+					<span id="navas"></span>
+					<a href="javascript:;">></a>
+				</nav>
+			</div>
+		</div>
+		<script type="text/javascript" src="./../../jQuery/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			/*
+            请求地址：http://localhost:8088/2017-04-19/php/new.php
+                method get
+                请求数据：
+                    type   数据     school | world   必填项
+                    start 开始下标         0          可选
+                    end   结束下标         4          可选
+                响应数据
+                    类型 json
+
+                    status 状态  0返回数据代表成功   1代表返回数据失败
+                    count  数据总数     
+                    data   数组
+                        {
+                            num  当前的数据的下标
+                            job  招聘类型
+                            pNum  招聘人数
+                            ask  岗位要求
+                            data  发布日期
+                        }
+
+        */
+		</script>
+		<script >
+			var hash = window.location.hash.slice(1);
+			var num = 1;
+			var type = "world";
+			if(hash ===""){
+				num = 1;
+				type = "world";
+			}else{
+				var arr = hash.split("&");
+				var obj = {};
+				arr.forEach(function(item){
+					var a = item.split("=");
+					console.log(a);
+					obj[a[0]] = a[1];
+				})
+
+				console.log(obj);
+				num = obj['p']|| 1;
+				type = obj["type"]|| "world";
+			}
+
+			if(type ==="world"){
+				$("#leftList li").eq(0).addClass("active");
+			}else if(type ==="school"){
+				$("#leftBox a").eq(0).addClass("active");
+			}else if(type === "world"){
+				$("#leftList li").eq(1).addClass("active");
+			}else{
+				$("#leftList li").eq(0).addClass("active");
+				type = "world";
+				window.location.hash = "type="+type+"&p="+num;
+			}
+			getAjaxDate(type,((num-1)*4));
+			function getAjaxDate(type,index){
+				$.ajax({
+					url:"./../php/new.php",
+					data:{
+							type: type,
+							start: index,
+							end: 4,
+						},
+					dataType: "json",
+					success (data){
+						if(!data.status){
+							render(data);
+							//生成页数
+							if($("#navas").attr("done")!=="true"){
+								createPage(data);
+								addEvent();
+							}
+						}
+					}
+				})
+			}
+			//渲染招聘信息区域的内容
+			function render(data){
+				createContent(data);
+			}
+			//生成右侧HTML
+			function createHtml (data){
+				var str = "";
+				var html = data.data.map(function(item,i){
+					return `<li>
+								<span class="num">${data.data[i].num+1 >= 10 ? data.data[i].num+1 : "0" + (data.data[i].num+1)}</span>
+								<div class="list">
+									<span class="job">${data.data[i].ask}</span><span>需求人数：${data.data[i].pNum}名</span><time>${data.data[i].data}</time></a>
+									<p><a href="content.html?${"999"}">查看详情>></a></p>
+								</div>
+							</li>`
+				}).join("");
+				return html;
+			}
+			//渲染右侧内容
+			function createContent (data){
+				$("#rightList").html(createHtml(data));
+			}
+			//生成右侧分页HTML
+			function pageHtml(data){
+				var str ="";
+				for(var i=0; i<Math.ceil(data.count/4); i++){
+					str += `<a class="${i}" href="javascript:;">${i+1}</a>`
+				}	
+				return str;
+			}
+			//渲染右侧分页内容
+			function createPage(data){
+				$("#navas").html(pageHtml(data));
+				$("#navas").find("a").eq(0).addClass('active');
+				$("#navas").attr("done",true);
+			}
+			//分页父级绑定事件
+			function addEvent(){
+				$("#navas").on("click","a",function(){
+					console.log($(this).text())
+					var currentPage = $(this).text().trim();
+					getAjaxDate(type,(currentPage-1)*4);
+					window.location.hash = "type="+type+"&p="+currentPage;
+					num = currentPage;
+					$("#navas a").removeClass('active');
+					$(this).addClass('active');
+					
+				})
+			}
+
+			//点击校园招聘和社会招聘按钮
+			$("#leftList").on("click","li",function(){
+				var index = $(this).index();
+				$("#navas").attr("done",false);
+				$("#leftList li").removeClass("active");
+				$(this).addClass("active");
+
+				if(index ===0){
+					//请求ajax,获取社会招聘数据
+					getAjaxDate("world");
+					type = "world";
+				}else if(index ===1){
+					getAjaxDate("school");
+					type="school";
+				}
+			})
+		</script>
+	</body>
+</html>
